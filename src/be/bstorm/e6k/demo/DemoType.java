@@ -1,5 +1,7 @@
 package be.bstorm.e6k.demo;
 
+import java.util.Scanner;
+
 public class DemoType {
 
     public static void main(String[] args) {
@@ -7,10 +9,10 @@ public class DemoType {
         // Types primitifs
 
         // entiers
-        byte b = 127;     // -128;127 | 1byte
-        short s = 32_000;    // -32k;32k | 2byte
-        int i = 2_000_000_000;      // -2M ; 2M | 4byte
-        long l = 4_000_000_000_000_000_000L;     // 8byte
+        byte b = 127;                       // -128;127 | 1byte
+        short s = 32_000;                   // -32k;32k | 2byte
+        int i = 2_000_000_000;              // -2M ; 2M | 4byte
+        long l = 4_000_000_000_000_000_000L;// -bcp;bcp | 8byte
 
         // réels
         float f = 0.1F; // 4byte
@@ -18,7 +20,7 @@ public class DemoType {
 
         // autre
         boolean bool = true;
-        char character = 's';
+        char character = 's';               // 0;64k   | 2byte
 
         // Type référence
         String chaine = "hello world!";
@@ -46,6 +48,28 @@ public class DemoType {
         // UPPER_SNAKE_CASE : CONSTANTE
 
 
+        // Les conversions
+
+        l = i; // conversion implicite
+        i = (int)l; // conversion explicite
+
+        // explicite nécessaire dans les cas suivant
+        // - entier vers entier plus petit
+        // - réel vers entier
+        // - réel vers réel plus petit
+
+
+        // Type Wrappers
+        Byte B = null;
+        Short S;
+        Integer I;
+        Long L;
+
+        Float F;
+        Double D;
+
+        Boolean Bool;
+        Character Char;
 
     }
 
