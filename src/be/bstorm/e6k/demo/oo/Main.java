@@ -1,15 +1,23 @@
 package be.bstorm.e6k.demo.oo;
 
+import be.bstorm.e6k.demo.oo.enfant.Employe;
+
+import java.time.LocalDate;
+
 public class Main {
 
     public static void main(String[] args) {
 
-        Personne p = new Personne("luc", -42);
+        Employe employe = new Employe("pol", 35, 2000);
+        Personne personne = employe;
+        Object o = new Object();
 
-        p.setNom("truc");
-        p.setAge( -45 );
+        personne.saluer();
 
-        System.out.println( "Age de p: " + p.getAge() );
+        if( o instanceof Employe )
+            System.out.println( ((Employe)o).getSalaire() );
+
+        System.out.println( personne );
 
     }
 

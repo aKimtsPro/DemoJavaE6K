@@ -1,9 +1,14 @@
 package be.bstorm.e6k.demo.oo;
 
-public class Personne {
+public abstract class Personne {
 
     private String nom;
     private int age;
+
+    public Personne() {
+    }
+
+    public abstract void saluer();
 
     protected Personne(String nom, int age) {
         this.nom = nom;
