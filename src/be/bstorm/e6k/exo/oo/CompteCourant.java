@@ -1,41 +1,23 @@
 package be.bstorm.e6k.exo.oo;
 
-public class CompteCourant {
+public class CompteCourant extends Compte {
 
-    private final String numero;
-    private double solde;
     private double ligneCredit;
-    private Personne titulaire;
 
     public CompteCourant(String numero, Personne titulaire) {
-        this.numero = numero;
-        this.titulaire = titulaire;
+        super( numero, titulaire );
     }
 
     public CompteCourant(String numero, double ligneCredit, Personne titulaire) {
-        this.numero = numero;
+        super( numero, titulaire );
         this.setLigneCredit( ligneCredit );
-        this.titulaire = titulaire;
     }
 
-    public void depot(double montant){
-        if( montant > 0 ) {
-            this.solde += montant;
-        }
-    }
-
+    @Override
     public void retrait(double montant){
-        if( montant > 0 && montant <= solde + ligneCredit ){
-            this.solde -= montant;
+        if( montant <= getSolde() + ligneCredit ){
+            super.retrait( montant );
         }
-    }
-
-    public String getNumero() {
-        return numero;
-    }
-
-    public double getSolde() {
-        return solde;
     }
 
     public double getLigneCredit() {
@@ -47,11 +29,4 @@ public class CompteCourant {
             this.ligneCredit = ligneCredit;
     }
 
-    public Personne getTitulaire() {
-        return titulaire;
-    }
-
-    public void setTitulaire(Personne titulaire) {
-        this.titulaire = titulaire;
-    }
 }
